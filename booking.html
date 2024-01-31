@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+  <link rel="icon" href="favicon.ico">
+
+  <script src="assets/js/javascript.js"></script>
+  <script src="assets/js/remove-branding.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="ajax/libs/font-awesome/4-7-0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <title> A-Z </title>
+
+  <style type="text/css">
+    body {
+      background: #fa9716;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stay">
+    <div class="nav">
+      <div class="log">
+        <img src="assets/img/nav logo.png" width="10%">
+      </div>
+      <div class="d">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#">Account</a>
+          <div class="dropdown-content">
+            <button onclick="javascript:window.open('register.html','_self')">Sign Up</button>
+            <button onclick="javascript:window.open('login.html','_self')">Login</button>
+          </div>
+        </div>
+        <a href="offers.html">Offers</a>
+        <a href="booking.html" style="background: red; color: white;">Booking</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking_card" style="margin-top: 42px;">
+    Search Flights<br>
+    <br>
+    <hr color="red">
+    <br>
+    <div class="b_d">
+      <label>From:</label><br>
+      <select>
+        <option value="0">Select from</option>
+        <option>Mumbai</option>
+      </select>
+      <br><br>
+      Departure Date:<br>
+      <input type="date" id="departure"><br><br>
+      <form name="r_ff">
+        <input type="radio" name="round" value="round">&nbsp;Round
+        <input type="radio" name="round" value="One Way">&nbsp;One Way
+    </div>
+    </form>
+    <br>
+
+    <div style="float: right;">
+      <label>To:</label>
+      <br>
+      <select>
+        <option value="0">Select to</option>
+        <option>Mumbai</option>
+      </select>
+      <br><br>
+      Return Date:<br>
+      <input type="date" id="return_d"><br><br>
+      <input type="radio" name="c" value="Economy">&nbsp;Economy
+      <input type="radio" name="c" value="First Class">&nbsp;First Class
+      <input type="radio" name="c" value="Business">&nbsp;Business
+    </div>
+    <center>
+      <input type="Submit" value="Search Flights" style="margin-top: 190px;" onclick="submit();">
+    </center>
+    </form>
+  </div>
+  <div class="search_card" id="search_ticket">
+    <div class="yt">
+      <center>
+        <h3>A-Z Airlines</h3>
+      </center>
+      Name:<div id="c_name1">Zaryab Husain Bubere</div><br>
+      Age:<div id="c_age1">18</div><br>
+      Gender:<div id="c_g1">Male</div><br>
+      <div class="ticket">
+        <div class="ticket-left">
+          <div class="ticket-1">
+            <p>FROM</p>
+            <h1 id="give_from">Not Selected</h1>
+            <div class="desc">
+              <span id="give_date">Not Selected</span>
+              <span>09:15</span>
+            </div>
+          </div>
+          <i class="fas fa-plane"></i>
+          <div class="ticket-2">
+            <p>TO</p>
+            <h1 id="give_to" id="give_to">Not Selected</h1>
+            <div class="desc">
+              <span id="give_date2">Not Selected</span>
+              <span>19:15</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticket-right">
+          <div class="ticket-top">
+            <div class="ticket-white">
+              <p>FROM</p>
+              <h1 id="give_r_from">Not Selected</h1>
+              <div class="desc">
+                <span id="give_r_date2">Not Selected</span>
+                <span>09:15</span>
+              </div>
+            </div>
+            <div class="ticket-white">
+              <p>TO</p>
+              <h1 id="give_r2_to">Not Selected</h1>
+              <div class="desc">
+                <span id="give_r2_date2">Not Selected</span>
+                <span>9:15</span>
+              </div>
+            </div>
+          </div>
+          <div class="ticket-bottom">
+            <div class="name">
+              <h1>Zaryab Bubere</h1>
+              <span>CLASS - <b><span id="give_class">Not Selected</span></b></span>
+            </div>
+            <img src="assets/img/barcode.jpg" alt="barcode" width="80">
+          </div>
+        </div>
+      </div>
+      <center><button class="book_button" onclick="book_confirm()">Book Ticket</button></center>
+    </div>
+
+    <table width="100%" class="table">
+      <tr>
+        <th>AIRLINE</th>
+        <th>DEPART</th>
+        <th>ARRIVE</th>
+        <th>DURATION</th>
+        <th>PRICE</th>
+      </tr>
+      <tr>
+        <td>Air India</td>
+        <td>03:50</td>
+        <td>05:55</td>
+        <td>2h 05m</td>
+        <td><button onclick="f1()" class="cursor">R<span id="V1"></span></button></td>
+      </tr>
+      <tr>
+        <td>Go Air</td>
+        <td>07:00</td>
+        <td>09:15</td>
+        <td>2h 05m</td>
+        <td><button onclick="f1()" class="cursor">R<span id="V2"></span></button></td>
+      </tr>
+      <tr>
+        <td>SpiceJet</td>
+        <td>08:30</td>
+        <td>10:35</td>
+        <td>2h 20m</td>
+        <td><button onclick="f1()" class="cursor">R<span id="V3"></span></button></td>
+      </tr>
+      <tr>
+        <td>Air Asia</td>
+        <td>06:55</td>
+        <td>09:05</td>
+        <td>2h 10m</td>
+        <td><button onclick="f1()" class="cursor">R<span id="V4"></span></button></td>
+      </tr>
+
+    </table>
+    <br>
+    <table width="100%" class="table">
+      <tr>
+        <td>IndiGo</td>
+        <td>05:05</td>
+        <td>08:55</td>
+        <td>3h 50m</td>
+        <td><button onclick="f1()" class="cursor">R3,151</button></td>
+      </tr>
+      <tr>
+        <td>Vistara</td>
+        <td>07:10</td>
+        <td>12:00</td>
+        <td>6h 40m</td>
+        <td><button onclick="f1()" class="cursor">R3,151</button></td>
+      </tr>
+      <tr>
+        <td>Air India</td>
+        <td>08:44</td>
+        <td>11:30</td>
+        <td>4h 10m</td>
+        <td><button onclick="f1()" class="cursor">R3,151</button></td>
+      </tr>
+      <tr>
+        <td>SpiceJet</td>
+        <td>10:14</td>
+        <td>05:00</td>
+        <td>2h 20m</td>
+        <td><button onclick="f1()" class="cursor">R3,151</button></td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div class="p_f">
+    <div class="fo">
+      <form name="pf">
+        Enter Name:&nbsp;<input type="text" placeholder="eg:Zaryab Hussain Bubere" id="c_name"><br><br>
+        Enter age:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="eg:18" id="c_age"><br><br>
+        Gender:
+        <br><br>
+        <input type="radio" name="g" id="c_g" value="Male">&nbsp;Male
+        <input type="radio" name="g" id="c_g" value="Female">&nbsp;Female<br><br>
+        <center><input type="button" class="cursor" value="Submit" onclick="person_data()"></center>
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function person_data() {
+      document.getElementsByClassName("p_f")[0].style = "display:none";
+      document.getElementsByClassName("yt")[0].style = "display:block";
+
+      var customer_name = document.getElementById("c_name").value;
+      var customer_age = document.getElementById("c_age").value;
+      var customer_gender = document.pf.g.value;
+      alert(customer_name + " " + customer_age + " " + customer_gender);
+      document.getElementById("c_name1").innerHTML = customer_name;
+      document.getElementById("c_age1").innerHTML = customer_age;
+      document.getElementById("c_g1").innerHTML = customer_gender;
+    }
+
+    function f1() {
+      document.getElementsByClassName("yt")[0].style = "display:none";
+      document.getElementsByClassName("table")[0].style = "display:none";
+      document.getElementsByClassName("table")[1].style = "display:none";
+      document.getElementsByClassName("p_f")[0].style = "display:block";
+    }
+
+    document.getElementById("V1").innerHTML = Math.floor((Math.random(3000) * 9000) + 1);
+    document.getElementById("V2").innerHTML = Math.floor((Math.random(3000) * 9000) + 1);
+    document.getElementById("V3").innerHTML = Math.floor((Math.random(3000) * 9000) + 1);
+    document.getElementById("V4").innerHTML = Math.floor((Math.random(3000) * 9000) + 1);
+  </script>
+
+
+  <script>
+    var airports = [{
+      "name": "Vichy-Charmeil Airport",
+      "city": "Vichy",
+      "country": "France",
+      "IATA": "VHY"
+    }, {
+      "name": "Lyon-Bron Airport",
+      "city": "Lyon",
+      "country": "France",
+      "IATA": "LYN"
+    }, {
+      "name": "Cannes-Mandelieu Airport",
+      "city": "Cannes",
+      "country": "France",
+      "IATA": "CEQ"
+    }, {
+      "name": "Marseille Provence Airport",
+      "city": "Marseille",
+      "country": "France",
+      "IATA": "MRS"
+    }, {
+      "name": "Charles de Gaulle International",
+      "city": "Paris",
+      "country": "France",
+      "IATA": "CDG"
+    }, {
+      "name": "Toussus-le-Noble Airport",
+      "city": "Toussous-le-noble",
+      "country": "France",
+      "IATA": "TNF"
+    }, {
+      "name": "Paris-Orly Airport",
+      "city": "Paris",
+      "country": "France",
+      "IATA": "ORY"
+    }, {
+      "name": "Le Mans-Arnage Airport",
+      "city": "Le Mans",
+      "country": "France",
+      "IATA": "LME"
+    }, {
+      "name": "Nantes Atlantique Airport",
+      "city": "Nantes",
+      "country": "France",
+      "IATA": "NTE"
+    }, {
+      "name": "Nancy-Essey Airport",
+      "city": "Nancy",
+      "country": "France",
+      "IATA": "ENC"
+    }, {
+      "name": "Frankfurt am Main International",
+      "city": "Frankfurt",
+      "country": "Germany",
+      "IATA": "FRA"
+    }, {
+      "name": "Hamburg Airport",
+      "city": "Hamburg",
+      "country": "Germany",
+      "IATA": "HAM"
+    }, {
+      "name": "Cologne Bonn Airport",
+      "city": "Cologne",
+      "country": "Germany",
+      "IATA": "CGN"
+    }, {
+      "name": "Munich International Airport",
+      "city": "Munich",
+      "country": "Germany",
+      "IATA": "MUC"
+    }, {
+      "name": "Stuttgart Airport",
+      "city": "Stuttgart",
+      "country": "Germany",
+      "IATA": "STR"
+    }, {
+      "name": "Berlin-Tegel International Airport",
+      "city": "Berlin",
+      "country": "Germany",
+      "IATA": "TXL"
+    }, {
+      "name": "Hannover Airport",
+      "city": "Hannover",
+      "country": "Germany",
+      "IATA": "HAJ"
+    }, {
+      "name": "Bremen Airport",
+      "city": "Bremen",
+      "country": "Germany",
+      "IATA": "BRE"
+    },
+
+    {
+      "name": "Frankfurt-Hahn Airport",
+      "city": "Hahn",
+      "country": "Germany",
+      "IATA": "HHN"
+    }, {
+      "name": "Dortmund Airport",
+      "city": "Dortmund",
+      "country": "Germany",
+      "IATA": "DTM"
+    }, {
+      "name": "Cork Airport",
+      "city": "Cork",
+      "country": "Ireland",
+      "IATA": "ORK"
+    }, {
+      "name": "Galway Airport",
+      "city": "Galway",
+      "country": "Ireland",
+      "IATA": "GWY"
+    }, {
+      "name": "Dublin Airport",
+      "city": "Dublin",
+      "country": "Ireland",
+      "IATA": "DUB"
+    }, {
+      "name": "Waterford Airport",
+      "city": "Waterford",
+      "country": "Ireland",
+      "IATA": "WAT"
+    }, {
+      "name": "Amsterdam Airport Schiphol",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "IATA": "AMS"
+    }, {
+      "name": "Maastricht Aachen Airport",
+      "city": "Maastricht",
+      "country": "Netherlands",
+      "IATA": "MST"
+    }, {
+      "name": "Eindhoven Airport",
+      "city": "Eindhoven",
+      "country": "Netherlands",
+      "IATA": "EIN"
+    }, {
+      "name": "Rotterdam The Hague Airport",
+      "city": "Rotterdam",
+      "country": "Netherlands",
+      "IATA": "RTM"
+    }, {
+      "name": "Belfast International Airport",
+      "city": "Belfast",
+      "country": "United Kingdom",
+      "IATA": "BFS"
+    }, {
+      "name": "Manchester Airport",
+      "city": "Manchester",
+      "country": "United Kingdom",
+      "IATA": "MAN"
+    }, {
+      "name": "Southampton Airport",
+      "city": "Southampton",
+      "country": "United Kingdom",
+      "IATA": "SOU"
+    }, {
+      "name": "London Heathrow Airport",
+      "city": "London",
+      "country": "United Kingdom",
+      "IATA": "LHR"
+    }, {
+      "name": "Blackpool International Airport",
+      "city": "Blackpool",
+      "country": "United Kingdom",
+      "IATA": "BLK"
+    }, {
+      "name": "Newcastle Airport",
+      "city": "Newcastle",
+      "country": "United Kingdom",
+      "IATA": "NCL"
+    }, {
+      "name": "London Stansted Airport",
+      "city": "London",
+      "country": "United Kingdom",
+      "IATA": "STN"
+    }, {
+      "name": "Miami International Airport",
+      "city": "Miami",
+      "country": "United States",
+      "IATA": "MIA"
+    }, {
+      "name": "John F Kennedy International Airport",
+      "city": "New York",
+      "country": "United States",
+      "IATA": "JFK"
+    }, {
+      "name": "Piedmont Triad International Airport",
+      "city": "Greensboro",
+      "country": "United States",
+      "IATA": "GSO"
+    }, {
+      "name": "Wings Field",
+      "city": "Philadelphia",
+      "country": "United States",
+      "IATA": "BBX"
+    }, {
+      "name": "Hardwick Field",
+      "city": "Cleveland",
+      "country": "United States",
+      "IATA": "HDI"
+    }, {
+      "name": "Warren Field",
+      "city": "Washington",
+      "country": "United States",
+      "IATA": "OCW"
+    }];
+
+    var s = document.getElementsByTagName("select");
+    var w = document.createElement("option");
+
+    for (var i = 0; i < airports.length; i++) {
+      var o = document.createElement("option");
+      s[0].appendChild(o).innerHTML = airports[i]["city"];
+    }
+
+    for (var i = 0; i < airports.length; i++) {
+      var o = document.createElement("option");
+      s[1].appendChild(o).innerHTML = airports[i]["city"];
+    }
+
+    //flight search
+
+    function submit() {
+      document.getElementsByClassName("booking_card")[0].style = "display:none";
+      document.getElementsByClassName("search_card")[0].style = "display:block";
+
+      var mainfrom_d = document.getElementById("give_date");
+      var main2_d = document.getElementById("give_date2");
+
+      var main_from = document.getElementById("give_from");
+      var main_to = document.getElementById("give_to");
+
+      var main_r_from = document.getElementById("give_r_from");
+      var main_r_to = document.getElementById("give_r2_to");
+      var main_r_date2 = document.getElementById("give_r2_date2");
+      var main_r_date = document.getElementById("give_r_date2");
+      var class_g = document.getElementById("give_class");
+
+      var from = document.getElementsByTagName("select")[0].value;
+      var to = document.getElementsByTagName("select")[1].value;
+
+      var departure = document.getElementById("departure").value;
+      var return_d = document.getElementById("return_d").value;
+
+      var class_d = document.getElementsByName('c');
+      var rr = document.getElementsByName('round');
+
+      for (z = 0; z < class_d.length; z++) {
+        for (q = 0; q < rr.length; q++) {
+          if (class_d[z].checked && rr[q].checked) {
+            var r1 = rr[q].value;
+            var class1 = class_d[z].value;
+
+            main_from.innerHTML = from;
+            main_to.innerHTML = to;
+
+            mainfrom_d.innerHTML = departure;
+            main2_d.innerHTML = return_d;
+
+            main_r_from.innerHTML = from;
+            main_r_to.innerHTML = to;
+
+            main_r_date.innerHTML = departure;
+            main_r_date2.innerHTML = return_d;
+
+            class_g.innerHTML = class1 + "<br><b>Round:</b>" + document.r_ff.round.value;
+          }
+        }
+      }
+      var optn = document.getElementsByTagName("option");
+      if (!(class_d[0].checked || class_d[1].checked || class_d[2].checked)) {
+        alert("Something went wrong contact site Developer Zaryab Bubere");
+        window.open(window.location.href, '_self');
+      }
+    }
+  </script>
+</body>
+
+</html>

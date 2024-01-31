@@ -1,0 +1,237 @@
+<html>
+
+<head>
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="favicon_io/site.webmanifest">
+	<link rel="icon" href="favicon.ico">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<title> A-Z Contact </title>
+
+	<script src="assets/js/remove-branding.js"></script>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		form div {
+			background: cadetblue;
+			color: white;
+			border-radius: 12px;
+			width: 17rem;
+			text-align: center;
+			margin: 0px 0px 10px 15px;
+		}
+
+		.background {
+			height: 100%;
+			width: 100%;
+			background-image: url('assets/img/airplane.jpg');
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			overflow: hidden;
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #a4a6a8;
+		}
+
+		li {
+			float: left;
+		}
+
+		li a {
+			display: block;
+			color: black;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-family: helvetica;
+			font-size: 18px;
+			width: 150px;
+			text-align: center;
+		}
+
+		li a:hover:not(.active) {
+			background-color: white;
+		}
+
+		.active {
+			background-color: white;
+		}
+
+		input[type=text],
+		select,
+		textarea {
+			width: 100%;
+			outline: none;
+			padding: 12px;
+			border: 3px solid green;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin-top: 5px;
+			margin-bottom: 16px;
+			font-family: bookman old style;
+		}
+
+		.container {
+			position: absolute;
+			height: 350px;
+			width: 300px;
+			top: 7%;
+			border-radius: 20px;
+			padding: 50px;
+		}
+
+		input[type=button] {
+			cursor: pointer;
+			background-color: lightgreen;
+			padding: 16px;
+			border: none;
+			border-radius: 10px;
+			transition: all 0.4s;
+		}
+
+		input[type=button]:hover {
+			background-color: green;
+			color: white;
+		}
+
+		.c_c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			padding: 12px;
+			background: white;
+			width: 50%;
+			transform: translate(-50%, -50%);
+			display: none;
+			animation-iteration-count: 1;
+		}
+
+		.c_c h1 {
+			animation: we 2s infinite;
+		}
+
+		@keyframes we {
+			from {
+				font-size: 0;
+			}
+
+			to {
+				font-size: 30px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="stay">
+		<div class="nav">
+			<div class="log">
+				<img src="assets/img/nav logo.png" width="10%">
+			</div>
+			<div class="d">
+				<a href="index.html">Home</a>
+				<div class="dropdown">
+					<a href="#">Account</a>
+					<div class="dropdown-content">
+						<B>username :<div id="username"></div></B>
+						<button onclick="javascript:window.open('register.html','_self')">Sign Up</button>
+						<button onclick="javascript:window.open('login.html','_self')">Login</button>
+					</div>
+				</div>
+				<a href="offers.html">Offers</a>
+				<a href="booking.html">Booking</a>
+				<a href="contact.html" style="background: red; color: white;">Contact Us</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="background"> </div>
+	<div class="container">
+		<form>
+			<input type="text" id="fname" placeholder="First Name.." required>
+			<div id="fnn"></div>
+			<input type="text" id="lname" placeholder="Last Name.." required>
+			<div id="lnn"></div>
+
+			<select id="country">
+				<option value="0">Default</option>
+				<option value="India">India</option>
+				<option value="France">France</option>
+				<option value="Norway">Norway</option>
+				<option value="United States">United States</option>
+				<option value="Australia">Australia</option>
+				<option value="Sweden">Sweden</option>
+				<option value="United Kingdom">United Kingdom</option>
+				<option value="Germany">Germany</option>
+				<option value="Canada">Canada</option>
+				<option value="Japan">Japan</option>
+				<option value="Switzerland">Switzerland</option>
+			</select>
+			<div id="cnn"></div>
+			<textarea id="Message" placeholder="Message..." style="height:100px"></textarea>
+			<div id="mnn"></div>
+
+			<input type="button" value="Submit" onclick="f1()">
+		</form>
+	</div>
+
+	<div class="c_c" id="t1">
+		<h1>THANK YOU!!! WE WILL CONTACT YOU SHORTLY</h1>
+	</div>
+
+	<div class="footer">
+		Created By Zaryab Bubere
+	</div>
+
+	<script type="text/javascript">
+		function f1() {
+			var firstname = document.getElementById("fname").value;
+			var lastname = document.getElementById("lname").value;
+			var Message = document.getElementById("Message").value;
+			var opt = document.getElementsByTagName("option")[0].value;
+
+			var rg1 = /^[A-Z]{1,10}$/;
+			var rg2 = /^[A-Z]{1,20}$/;
+			var rg3 = /[a-z]/;
+
+			//regular expresions for firsname
+			if (rg1.test(firstname) == false) {
+				document.getElementById("fnn").innerHTML = "ENTER FIRST YOUR NAME IN UPPERCASE";
+				document.getElementById("lnn").innerHTML = "";
+				document.getElementById("mnn").innerHTML = "";
+			}
+			//regular expresions for lastname
+			else if (rg2.test(lastname) == false) {
+				document.getElementById("lnn").innerHTML = "ENTER LAST YOUR NAME IN UPPERCASE";
+				document.getElementById("fnn").innerHTML = "";
+				document.getElementById("mnn").innerHTML = "";
+			}
+
+			//regular expresions for messagge
+			else if (rg3.test(Message) == false) {
+				document.getElementById("mnn").innerHTML = "Invalid Message";
+				document.getElementById("lnn").innerHTML = "";
+				document.getElementById("fnn").innerHTML = "";
+			}
+
+			else {
+				document.getElementsByClassName("c_c")[0].style = "display: inline";
+				document.getElementsByClassName("container")[0].style = "filter:blur(20px)";
+			}
+		}
+	</script>
+</body>
+
+</html>
